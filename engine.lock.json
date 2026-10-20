@@ -1,0 +1,14 @@
+{
+  "project": "https://github.com/cryptpad/onlyoffice-x2t-wasm",
+  "release": "v8.3.0+0",
+  "commit": "79bb259bb97519be1c350bf8674aaed53335bf4f",
+  "archive": "https://github.com/cryptpad/onlyoffice-x2t-wasm/releases/download/v8.3.0%2B0/x2t.zip",
+  "sha256": "6c28a5b98718dd4488a39b457b746126d2e9baa3ea3019c68797447cd6443e54",
+  "files": {
+    "x2t.js": "fe04bdfa43c1bb150bf0ec4f2a063893733a0b919801ba6054ad25b53635955e",
+    "x2t.wasm": "1f9d84763368d5ad31f5bb25cc99c4d883d9928c94cbc9af5b8b5f1e84a4bef7"
+  },
+  "source": "https://github.com/cryptpad/onlyoffice-x2t-wasm/tree/79bb259bb97519be1c350bf8674aaed53335bf4f",
+  "sourceArchive": "https://codeload.github.com/cryptpad/onlyoffice-x2t-wasm/tar.gz/79bb259bb97519be1c350bf8674aaed53335bf4f",
+  "sourceArchiveSha256": "8b635ffeb2e1babe97c38f09e9c640e26025da2cd344c0b75ba8bf507b8d8c8b"
+}

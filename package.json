@@ -1,0 +1,17 @@
+{
+  "name": "browser-office-converter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone, browser-only DOC/XLS/PPT to OOXML converter powered by ONLYOFFICE x2t",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "release": "node scripts/release.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:engine": "node scripts/smoke.mjs"
+  },
+  "files": ["src", "scripts", "test", "legal", "engine.lock.json", "publication-files.json", "README.md", "PROTOCOL.md", "PUBLISHING.md", "LICENSE", "NOTICE", "LICENSE-EVIDENCE.md", "UPSTREAM-SOURCES.md", "THIRD_PARTY_NOTICES.txt"]
+}

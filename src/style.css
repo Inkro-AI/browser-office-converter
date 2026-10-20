@@ -1,0 +1,10 @@
+/* SPDX-License-Identifier: AGPL-3.0-only */
+:root { color-scheme: light dark; font: 16px/1.6 system-ui, sans-serif; }
+body { margin: 0; }
+main { max-width: 46rem; margin: 4rem auto; padding: 0 1.5rem; }
+h1 { line-height: 1.2; }
+label, input { display: block; margin: 1rem 0; }
+button, input { font: inherit; }
+button { padding: .5rem 1rem; cursor: pointer; }
+footer { border-top: 1px solid #8886; margin-top: 3rem; padding-top: 1rem; font-size: .85rem; }
+a { color: inherit; }

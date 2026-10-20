@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Browser Office Converter</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <h1>Browser Office Converter</h1>
+    <p>Convert DOC, XLS and PPT to DOCX, XLSX and PPTX on your device. Documents stay in your browser.</p>
+    <label for="file">Choose a legacy Office document (up to 50 MiB)</label>
+    <input id="file" type="file" accept=".doc,.xls,.ppt">
+    <div><button id="convert" type="button">Convert</button> <button id="cancel" type="button" hidden>Cancel</button></div>
+    <p id="status" role="status"></p>
+    <a id="download" hidden>Download converted file</a>
+    <footer>
+      <p>Based on ONLYOFFICE conversion core, copyright © 2010–2023 Ascensio System SIA and other upstream contributors, with WebAssembly adaptations by CryptPad.</p>
+      <p>Browser Office Converter's wrapper and standalone interface are © 2026 its contributors, modified on 20 October 2026. This independent project uses CryptPad's precompiled x2t engine and is not an official ONLYOFFICE product.</p>
+      <p>Free software under GNU AGPL version 3. No warranty. You may redistribute and modify it under the license.</p>
+      <p>ONLYOFFICE is a trademark of Ascensio System SIA.</p>
+      <p><a href="./LICENSE">License</a> · <a href="./NOTICE">Copyright and notices</a> · <a href="./sources.html">Complete source and build instructions</a></p>
+    </footer>
+  </main>
+  <script type="module" src="./bridge.js"></script>
+</body>
+</html>
