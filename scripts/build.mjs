@@ -96,7 +96,7 @@ You may redistribute and modify it under the license.</p>
 <li><a href="./README.md">Build and deployment instructions</a></li></ul>
 <p>Powered by ONLYOFFICE x2t, adapted to WebAssembly by CryptPad. Independent project, not an official ONLYOFFICE product.</p>
 <p>Copyright © 2010–2023 Ascensio System SIA and other upstream contributors.
-Wrapper and standalone interface © 2026 Browser Office Converter contributors, modified on 20 October 2026.
+Wrapper and standalone interface © 2026 Browser Office Converter contributors, modified on 21 October 2026.
 ONLYOFFICE is a trademark of Ascensio System SIA.</p>
 <a href="./index.html">Back to converter</a></main></html>`);
 console.log(`Built standalone converter: ${output}\nWASM: ${wasm.length} bytes; gzip transfer: ${compressed.length} bytes`);

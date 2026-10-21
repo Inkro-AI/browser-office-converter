@@ -4,7 +4,7 @@ Wrapper, standalone interface and build scripts: GNU AGPL version 3 only.
 
 This is an independent project, not an official ONLYOFFICE product.
 ONLYOFFICE is a trademark of Ascensio System SIA.
-The wrapper and standalone interface were last modified on 2026-10-20.
+The wrapper and standalone interface were last modified on 2026-10-21.
 The unmodified conversion engine is ONLYOFFICE x2t, adapted to WebAssembly
 by CryptPad. Copyright Ascensio System SIA and other upstream contributors.
 

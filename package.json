@@ -1,6 +1,6 @@
 {
   "name": "browser-office-converter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Standalone, browser-only DOC/XLS/PPT to OOXML converter powered by ONLYOFFICE x2t",
   "license": "AGPL-3.0-only",

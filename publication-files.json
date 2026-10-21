@@ -23,6 +23,9 @@
   "src/protocol.js",
   "src/style.css",
   "src/worker.js",
+  "src/xls-row-heights.js",
+  "test/xls-fixtures.mjs",
+  "test/xls-row-heights.test.mjs",
   "test/protocol.test.mjs",
   "test/publication.test.mjs"
 ]

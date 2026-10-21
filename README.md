@@ -28,8 +28,8 @@ npm run dev
 ```
 
 Open `http://localhost:5175`. The dev command only serves static files.
-`npm test` tests the protocol, limits and worker lifecycle without downloading
-the engine. To run a real engine conversion against your own local fixtures:
+`npm test` tests the protocol, limits, worker lifecycle and XLS row-height
+preservation without downloading the engine. To run a real engine conversion against your own local fixtures:
 
 ```sh
 npm run test:engine -- /path/to/sample.doc /path/to/sample.xls /path/to/sample.ppt
@@ -58,7 +58,7 @@ npm test
 npm run release
 ```
 
-`release/0.1.0/` contains the standalone source archive, static deployment
+`release/0.1.1/` contains the standalone source archive, static deployment
 archive, checksum-verified upstream source archive, `release.json` and
 `SHA256SUMS`. The upstream source download is about 245 MiB, cached locally,
 and is never loaded when opening a document. See [PUBLISHING.md](PUBLISHING.md)
@@ -133,6 +133,26 @@ This converts file formats; the host renderer still determines page layout.
 Conversion is read-only and does not execute document macros. The wrapper
 provides no password input or remote-resource API. No font files are bundled.
 Compatibility and rendering fidelity depend on the source document.
+
+### XLS row heights
+
+Before converting BIFF5/BIFF8 XLS, the wrapper marks valid saved row heights as
+explicit in an in-memory conversion copy. This prevents x2t from dropping
+automatic row heights and leaving wrapped text dependent on the host viewer's
+auto-fit support. The resulting XLSX contains those original heights, including
+rows on later worksheets. Hidden/collapsed rows, outline levels and formatting
+flags are retained; the original file is never modified. The output keeps fixed
+heights rather than recalculating them when later edited in another application.
+
+This small JavaScript metadata adapter is loaded only for XLS and adds no npm
+dependency or new WASM. It supports regular and mini CFB streams, fragmented
+chains, DIFAT and CFB versions 3/4. Encrypted, unsupported or malformed metadata
+is passed to the existing converter unchanged, with no partial edits. Height
+preservation is therefore best-effort outside supported BIFF5/8 workbooks.
+The unchanged x2t engine still owns conversion and its error handling.
+
+Format references: [Microsoft CFB](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-cfb/05060311-bfce-4b12-874d-71fd4ce63aea)
+and [MS-XLS Row / fUnsynced](https://learn.microsoft.com/en-us/openspecs/office_file_formats/ms-xls/4aab09eb-49ed-4d01-a3b1-1d726247d3c2).
 
 Limits: 50 MiB input/output, one conversion per worker, 120-second operation
 timeout. These are guards, not a promise that every file below the size limit

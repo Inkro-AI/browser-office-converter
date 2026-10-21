@@ -6,6 +6,7 @@ import { resolve, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
 import { createContext, runInContext } from "node:vm";
+import { preserveXlsRowHeights } from "../src/xls-row-heights.js";
 const root = fileURLToPath(new URL("../dist/", import.meta.url));
 const config = await readFile(resolve(root, "engine-config.js"), "utf8");
 const paths = process.argv.slice(2);
@@ -32,7 +33,7 @@ for (const file of paths) {
   const engine = context.Module;
   for (const path of ["/working", "/working/fonts", "/working/themes"]) engine.FS.mkdir(path);
   const source = `/working/input.${format}`, output = `/working/output.${OUTPUTS[format]}`;
-  engine.FS.writeFile(source, bytes);
+  engine.FS.writeFile(source, format === "xls" ? preserveXlsRowHeights(new Uint8Array(bytes)) : bytes);
   engine.FS.writeFile("/working/params.xml", `<TaskQueueDataConvert><m_sFileFrom>${source}</m_sFileFrom><m_sFileTo>${output}</m_sFileTo><m_sFontDir>/working/fonts/</m_sFontDir><m_sThemeDir>/working/themes</m_sThemeDir></TaskQueueDataConvert>`);
   const code = engine.ccall("main1", "number", ["string"], ["/working/params.xml"]);
   if (code !== 0) throw new Error(`${file}: engine returned ${code}`);

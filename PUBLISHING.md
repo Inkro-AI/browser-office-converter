@@ -12,7 +12,7 @@ Run inside `opensource/browser-office-converter`:
 ```sh
 npm test
 npm run release
-tar -tzf release/0.1.0/browser-office-converter-0.1.0-source.tar.gz
+tar -tzf release/0.1.1/browser-office-converter-0.1.1-source.tar.gz
 ```
 
 The release command packages the existing CryptPad engine; it does not compile
@@ -26,12 +26,12 @@ rejects symlinks; no host files, Git history, credentials, local fixtures,
 Git still requires its own staging review; the packaging allowlist cannot
 prevent a person from manually staging unrelated files.
 
-The `release/0.1.0/` directory contains:
+The `release/0.1.1/` directory contains:
 
 | File | Use |
 | --- | --- |
-| `browser-office-converter-0.1.0-source.tar.gz` | Complete standalone wrapper source, tests, CI, legal evidence and packaging instructions |
-| `browser-office-converter-0.1.0-static.tar.gz` | Static hosting files, prebuilt engine, notices and wrapper source download |
+| `browser-office-converter-0.1.1-source.tar.gz` | Complete standalone wrapper source, tests, CI, legal evidence and packaging instructions |
+| `browser-office-converter-0.1.1-static.tar.gz` | Static hosting files, prebuilt engine, notices and wrapper source download |
 | `cryptpad-x2t-79bb259bb97519be1c350bf8674aaed53335bf4f-source.tar.gz` | Original, checksum-verified upstream source archive |
 | `release.json` | Version, upstream identity and archive hashes |
 | `SHA256SUMS` | Checksums of the release archives and manifest |
@@ -90,8 +90,8 @@ Build services must fetch submodules before preparing the frontend.
 
 ## Publish the release and deploy
 
-In the public converter repository, create release `v0.1.0` from the reviewed
-source commit and attach **all five files** from `release/0.1.0/`.
+In the public converter repository, create release `v0.1.1` from the reviewed
+source commit and attach **all five files** from `release/0.1.1/`.
 The GitHub-generated source ZIP alone does not archive the engine's source.
 Keep old source assets available for as long as the matching binaries are served.
 

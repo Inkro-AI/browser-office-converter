@@ -32,7 +32,12 @@ self.onmessage = async ({ data }) => {
     if (data.buffer.byteLength > 50 * 1024 * 1024) throw new Error("tooLarge");
     const input = `/working/input.${data.format}`;
     const output = `/working/output.${data.output}`;
-    engine.FS.writeFile(input, new Uint8Array(data.buffer));
+    let inputBytes = new Uint8Array(data.buffer);
+    if (data.format === "xls") {
+      const { preserveXlsRowHeights } = await import("./xls-row-heights.js");
+      inputBytes = preserveXlsRowHeights(inputBytes);
+    }
+    engine.FS.writeFile(input, inputBytes);
     engine.FS.writeFile("/working/params.xml", `<?xml version="1.0"?>
       <TaskQueueDataConvert><m_sFileFrom>${input}</m_sFileFrom><m_sFileTo>${output}</m_sFileTo>
       <m_sFontDir>/working/fonts/</m_sFontDir><m_sThemeDir>/working/themes</m_sThemeDir></TaskQueueDataConvert>`);
